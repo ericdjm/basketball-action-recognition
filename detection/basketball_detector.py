@@ -1,11 +1,19 @@
 # basketball_detector.py
-from detection.yolov5_model import YOLOv5Model
+from ultralytics import YOLO
 
 class BasketballDetector:
-    def __init__(self, model_path):
-        self.model = YOLOv5Model(model_path)
+    def __init__(self, model_path='yolov8n.pt'):
+        # Load YOLOv8 model
+        self.model = YOLO(model_path)
 
     def detect_basketball(self, image):
-        detections = self.model.detect(image)
-        basketball = detections[detections['class'] == 'basketball']
-        return basketball[['xmin', 'ymin', 'xmax', 'ymax']]
+        results = self.model(image)  # Run YOLOv8 on the image
+        basketball = []
+        for detection in results[0].boxes:
+            if detection.cls == 'basketball':  # Ensure it's a basketball class
+                basketball.append({
+                    'bbox': detection.xyxy,
+                    'confidence': detection.conf,
+                    'class': detection.cls
+                })
+        return basketball
