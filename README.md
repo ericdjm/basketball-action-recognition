@@ -5,6 +5,7 @@
 <h2>Table of Contents</h2>
 <ul>
   <li><a href="#overview">Overview</a></li>
+  <li><a href="#setting-up-the-virtual-environment">Setting Up the Virtual Environment</a></li>
   <li><a href="#project-objectives">Project Objectives</a></li>
   <li><a href="#technology-stack">Technology Stack</a></li>
   <li><a href="#installation">Installation</a></li>
@@ -18,7 +19,8 @@
 <h2 id="overview">Overview</h2>
 <p>The Basketball Action Recognition tool leverages computer vision and deep learning techniques to identify and classify basketball actions in real-time from video footage. By identifying key actions such as shooting, passing, and dribbling, this tool aims to provide actionable insights and improve game analysis.</p>
 
-## Setting Up the Virtual Environment
+<h2 id="setting-up-the-virtual-environment">Setting Up the Virtual Environment</h2>
+<p>To isolate dependencies and ensure consistent development, set up a virtual environment as follows:</p>
 
 1. **Create and Activate the Virtual Environment**:
 
@@ -38,7 +40,6 @@
    Once the virtual environment is activated, install all required packages with:
    ```sh
    pip install -r requirements.txt
-
 
 <h2 id="project-objectives">Project Objectives</h2>
 <ul>
